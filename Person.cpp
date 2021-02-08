@@ -1,0 +1,128 @@
+/***********************************************************************
+ * Module:  Person.cpp
+ * Author:  ismae
+ * Modified: domingo, 7 de febrero de 2021 21:42:23
+ * Purpose: Implementation of the class Person
+ ***********************************************************************/
+
+#include "Person.h"
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Person::getName()
+// Purpose:    Implementation of Person::getName()
+// Return:     std::string
+////////////////////////////////////////////////////////////////////////
+
+std::string Person::getName(void)
+{
+   return name;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Person::setName(std::string newName)
+// Purpose:    Implementation of Person::setName()
+// Parameters:
+// - newName
+// Return:     void
+////////////////////////////////////////////////////////////////////////
+
+void Person::setName(std::string newName)
+{
+   name = newName;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Person::getSurname()
+// Purpose:    Implementation of Person::getSurname()
+// Return:     std::string
+////////////////////////////////////////////////////////////////////////
+
+std::string Person::getSurname(void)
+{
+   return surname;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Person::setSurname(std::string newSurname)
+// Purpose:    Implementation of Person::setSurname()
+// Parameters:
+// - newSurname
+// Return:     void
+////////////////////////////////////////////////////////////////////////
+
+void Person::setSurname(std::string newSurname)
+{
+   surname = newSurname;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Person::getAge()
+// Purpose:    Implementation of Person::getAge()
+// Return:     Age
+////////////////////////////////////////////////////////////////////////
+
+Age Person::getAge(void)
+{
+   return age;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Person::setAge(Age newAge)
+// Purpose:    Implementation of Person::setAge()
+// Parameters:
+// - newAge
+// Return:     void
+////////////////////////////////////////////////////////////////////////
+
+void Person::setAge(Age newAge)
+{
+   age = newAge;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Person::getId()
+// Purpose:    Implementation of Person::getId()
+// Return:     std::string
+////////////////////////////////////////////////////////////////////////
+
+std::string Person::getId(void)
+{
+   return id;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Person::setId(std::string newId)
+// Purpose:    Implementation of Person::setId()
+// Parameters:
+// - newId
+// Return:     void
+////////////////////////////////////////////////////////////////////////
+
+void Person::setId(std::string newId)
+{
+   id = newId;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Person::getEmail()
+// Purpose:    Implementation of Person::getEmail()
+// Return:     std::string
+////////////////////////////////////////////////////////////////////////
+
+std::string Person::getEmail(void)
+{
+   return email;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Person::setEmail(std::string newEmail)
+// Purpose:    Implementation of Person::setEmail()
+// Parameters:
+// - newEmail
+// Return:     void
+////////////////////////////////////////////////////////////////////////
+
+void Person::setEmail(std::string newEmail)
+{
+   email = newEmail;
+}
