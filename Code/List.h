@@ -8,6 +8,8 @@
 #if !defined(__Taller_List_h)
 #define __Taller_List_h
 
+#include "Node.h"
+
 class List
 {
 public:
@@ -20,7 +22,7 @@ public:
 
 protected:
 private:
-   Nodo* node;
+   Node* node;
    int size;
 
 

@@ -13,7 +13,7 @@
 // Return:     int
 ////////////////////////////////////////////////////////////////////////
 
-int Algorithms::sort(void)
+void Algorithms::sort(void)
 {
    // TODO : implement
 }
@@ -24,7 +24,7 @@ int Algorithms::sort(void)
 // Return:     int
 ////////////////////////////////////////////////////////////////////////
 
-int Algorithms::swap(void)
+void Algorithms::swap(void)
 {
    // TODO : implement
 }
@@ -35,7 +35,7 @@ int Algorithms::swap(void)
 // Return:     int
 ////////////////////////////////////////////////////////////////////////
 
-int Algorithms::seach(void)
+void Algorithms::seach(void)
 {
    // TODO : implement
 }

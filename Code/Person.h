@@ -8,6 +8,9 @@
 #if !defined(__Taller_Person_h)
 #define __Taller_Person_h
 
+#include <string>
+#include "Age.h"
+
 class Person
 {
 public:

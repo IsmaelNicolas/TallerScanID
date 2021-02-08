@@ -8,6 +8,8 @@
 #if !defined(__Taller_Menu_h)
 #define __Taller_Menu_h
 
+#include <string> 
+
 class Menu
 {
 public:

@@ -11,9 +11,9 @@
 class Algorithms
 {
 public:
-   int sort(void);
-   int swap(void);
-   int seach(void);
+   void sort(void);
+   void swap(void);
+   void seach(void);
 
 protected:
 private:

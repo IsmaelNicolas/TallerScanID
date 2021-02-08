@@ -8,12 +8,12 @@
 #if !defined(__Taller_QRcode_h)
 #define __Taller_QRcode_h
 
-#include <Generator.h>
+#include "Generator.h"
 
 class QRcode : public Generator
 {
 public:
-   int make(void);
+   void make(void);
 
 protected:
 private:
