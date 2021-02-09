@@ -12,7 +12,7 @@ class Console
 {
 public:
    void hideCursor(void);
-   void changeSize(void);
+   void changeSize(int,int);
    void gotoXY(void);
    void changeColor(void);
 

@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = "../../Tarea\ Listas\ Cedula/main.o" Algorithms.o BinaryFile.o Console.o Email.o File.o Generator.o List.o Menu.o Node.o PDFFile.o Person.o QRcode.o Age.o
-LINKOBJ  = "../../Tarea Listas Cedula/main.o" Algorithms.o BinaryFile.o Console.o Email.o File.o Generator.o List.o Menu.o Node.o PDFFile.o Person.o QRcode.o Age.o
+OBJ      = "../../Tarea\ Listas\ Cedula/main.o" Algorithms.o BinaryFile.o Console.o Email.o File.o Generator.o List.o Node.o PDFFile.o Person.o QRcode.o Age.o Menu.o
+LINKOBJ  = "../../Tarea Listas Cedula/main.o" Algorithms.o BinaryFile.o Console.o Email.o File.o Generator.o List.o Node.o PDFFile.o Person.o QRcode.o Age.o Menu.o
 LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
 CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
@@ -48,9 +48,6 @@ Generator.o: Generator.cpp
 List.o: List.cpp
 	$(CPP) -c List.cpp -o List.o $(CXXFLAGS)
 
-Menu.o: Menu.cpp
-	$(CPP) -c Menu.cpp -o Menu.o $(CXXFLAGS)
-
 Node.o: Node.cpp
 	$(CPP) -c Node.cpp -o Node.o $(CXXFLAGS)
 
@@ -65,3 +62,6 @@ QRcode.o: QRcode.cpp
 
 Age.o: Age.cpp
 	$(CPP) -c Age.cpp -o Age.o $(CXXFLAGS)
+
+Menu.o: Menu.cpp
+	$(CPP) -c Menu.cpp -o Menu.o $(CXXFLAGS)

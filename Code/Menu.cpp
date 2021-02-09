@@ -6,7 +6,7 @@
  ***********************************************************************/
 
 #include "Menu.h"
-
+#include <windows.h>
 ////////////////////////////////////////////////////////////////////////
 // Name:       Menu::makeMenu(std::string message, std::string* options, int index)
 // Purpose:    Implementation of Menu::makeMenu()
@@ -19,5 +19,18 @@
 
 int Menu::makeMenu(std::string message, std::string* options, int index)
 {
-   // TODO : implement
+  	
+  	screen.changeSize(60,30);
+  	int selecction;
+  	int key;
+  	bool flag = true;
+	  
+	do{
+		
+		system("pause");
+		
+		
+	}while(flag);   
+  	
+  	return selecction;
 }

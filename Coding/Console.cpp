@@ -6,6 +6,11 @@
  ***********************************************************************/
 
 #include "Console.h"
+#include <windows.h>
+
+Console::Console(){
+	SetConsoleTitle("PICKPERSON");
+}
 
 ////////////////////////////////////////////////////////////////////////
 // Name:       Console::hideCursor()
@@ -13,9 +18,11 @@
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
 
-void Console::hideCursor(void)
+void Console::hideCursor(bool value)
 {
-   // TODO : implement
+   CONSOLE_CURSOR_INFO cci = { 100, value }; // El segundo miembro de la estructura indica si se muestra el cursor o no.
+
+    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cci);
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -24,9 +31,23 @@ void Console::hideCursor(void)
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
 
-void Console::changeSize(int x ,int y)
+void Console::changeSize(int width ,int heigth)
 {
-   // TODO : implement
+   
+   _COORD size;
+    _SMALL_RECT rect;
+    size.X = width;
+    size.Y = heigth;
+
+    rect.Top = 0;
+    rect.Left = 0;
+    rect.Right = width - 1;
+    rect.Bottom = heigth - 1;
+
+    HANDLE _console = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleScreenBufferSize(_console, size);
+    SetConsoleWindowInfo(_console, TRUE, &rect);
+   
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -35,9 +56,13 @@ void Console::changeSize(int x ,int y)
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
 
-void Console::gotoXY(void)
+void Console::gotoXY(int x ,int y)
 {
-   // TODO : implement
+   HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
+    COORD dwPos;
+    dwPos.X = x;
+    dwPos.Y = y;
+    SetConsoleCursorPosition(hcon, dwPos);
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -46,7 +71,9 @@ void Console::gotoXY(void)
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
 
-void Console::changeColor(void)
+void Console::changeColor(int texto, int fondo)
 {
-   // TODO : implement
+   HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+    WORD wColor = ((fondo & 0x0F) << 4) + (texto & 0x0F); 
+    SetConsoleTextAttribute(h, wColor);
 }
