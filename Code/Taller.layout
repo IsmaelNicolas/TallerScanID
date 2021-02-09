@@ -38,6 +38,7 @@ CursorCol=18
 CursorRow=11
 TopLine=1
 LeftChar=1
+<<<<<<< HEAD
 [Editor_23]
 CursorCol=7
 CursorRow=11
@@ -136,3 +137,7 @@ CursorCol=1
 CursorRow=1
 TopLine=1
 LeftChar=1
+=======
+[Editors]
+Order=
+>>>>>>> d6d610a0c66d2bc9d4435cd8a5c6964554b8fefe
