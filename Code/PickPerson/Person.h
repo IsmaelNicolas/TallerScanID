@@ -25,6 +25,7 @@ public:
 	std::string getEmail(void);
 	void setEmail(std::string newEmail);
 	std::string  toString(); 
+	std::string mostrarInformacion();
 	
 	
 protected:

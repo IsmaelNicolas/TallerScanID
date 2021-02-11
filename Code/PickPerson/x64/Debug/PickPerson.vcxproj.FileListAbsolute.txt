@@ -1,2 +1,4 @@
 D:\User\UNIVERSIDAD\Estructuras de datos\Taller Cedula\Code\PickPerson\x64\Debug\PickPerson.exe
 D:\User\UNIVERSIDAD\Estructuras de datos\Taller Cedula\Code\PickPerson\x64\Debug\PickPerson.pdb
+C:\Users\aange\OneDrive\Documentos\GitHub\TallerScanID\Code\PickPerson\x64\Debug\PickPerson.exe
+C:\Users\aange\OneDrive\Documentos\GitHub\TallerScanID\Code\PickPerson\x64\Debug\PickPerson.pdb

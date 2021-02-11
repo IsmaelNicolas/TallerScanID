@@ -128,6 +128,10 @@ void Person::setEmail(std::string newEmail)
    email = newEmail;
 }
 
+std::string Person::mostrarInformacion() {
+	return  "Nombre: " + this->name + "\nApellido: " + this->surname + "\nCedula: " + this->id;
+}
+
 std::string Person::toString()
 {
 	std::stringstream s;

@@ -3,7 +3,7 @@
 #include "Console.h"
 #include <iostream>
 #include "Algorithms.h"
-//#include "GenerarQR.cpp"
+#include "GenerarQR.h"
 #include "File.h"
 
 using namespace std;
@@ -11,10 +11,14 @@ using namespace std;
 void Options::inputNewPerson(List* people)
 {
 	system("cls");
+	char* cadena = new char[50];
 	Person* prsn = new Person();
 	Console screen;
 	string dato = "";
+	string cad;
 	InputData in;
+	Person per;
+	GeneraQR qr;
 	Age current,brth;
 	
 	int specialDay = 28;
@@ -76,7 +80,8 @@ void Options::inputNewPerson(List* people)
 		}else{
 			specialDay = dayMonth[ brth.getMonth() -1];
 		}
-		
+	
+
 		
 	}while ( dato.size() != 2 || stoi(dato) <= 0 || stoi(dato) > specialDay );
 	
@@ -84,6 +89,11 @@ void Options::inputNewPerson(List* people)
 	
 	prsn->setAge(brth.calculateAge());
 	
+	cad = prsn->mostrarInformacion();
+	for (int i = 0; i < cad.size(); i++) {
+		*(cadena + i) = cad[i];
+	}
+	qr.crear_QR(cadena);
 	//File dataFile(people);
 	//dataFile.saveInFile();
 	

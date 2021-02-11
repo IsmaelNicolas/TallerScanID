@@ -143,6 +143,7 @@
     <ClCompile Include="Algorithms.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="File.cpp" />
+    <ClCompile Include="GenerarQR.cpp" />
     <ClCompile Include="Generator.cpp" />
     <ClCompile Include="InputData.cpp" />
     <ClCompile Include="List.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="Algorithms.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="File.h" />
+    <ClInclude Include="GenerarQR.h" />
     <ClInclude Include="Generator.h" />
     <ClInclude Include="InputData.h" />
     <ClInclude Include="List.h" />
