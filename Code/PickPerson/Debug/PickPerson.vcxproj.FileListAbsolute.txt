@@ -1,0 +1,2 @@
+D:\User\UNIVERSIDAD\Estructuras de datos\Taller Cedula\Code\PickPerson\Debug\PickPerson.exe
+D:\User\UNIVERSIDAD\Estructuras de datos\Taller Cedula\Code\PickPerson\Debug\PickPerson.pdb

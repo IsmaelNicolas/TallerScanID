@@ -1,0 +1,86 @@
+/***********************************************************************
+ * Module:  Node.cpp
+ * Author:  ismae
+ * Modified: lunes, 8 de febrero de 2021 1:30:20
+ * Purpose: Implementation of the class Node
+ ***********************************************************************/
+
+#include "Node.h"
+#include <cstddef>
+////////////////////////////////////////////////////////////////////////
+// Name:       Node::getData()
+// Purpose:    Implementation of Node::getData()
+// Return:     int
+////////////////////////////////////////////////////////////////////////
+
+Person* Node::getData(void)
+{
+   return data;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Node::setData(int newData)
+// Purpose:    Implementation of Node::setData()
+// Parameters:
+// - newData
+// Return:     void
+////////////////////////////////////////////////////////////////////////
+
+void Node::setData(Person* newData)
+{
+   data = newData;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Node::getNext()
+// Purpose:    Implementation of Node::getNext()
+// Return:     int
+////////////////////////////////////////////////////////////////////////
+
+Node* Node::getNext(void)
+{
+   return next;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Node::setNext(int newNext)
+// Purpose:    Implementation of Node::setNext()
+// Parameters:
+// - newNext
+// Return:     void
+////////////////////////////////////////////////////////////////////////
+
+void Node::setNext(Node* newNext)
+{
+   next = newNext;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Node::Node()
+// Purpose:    Implementation of Node::Node()
+// Return:     
+////////////////////////////////////////////////////////////////////////
+
+Node::Node()
+{
+	this->data = NULL;
+	this->next = NULL;
+}
+
+
+Node::Node(Person *newPerson,Node *newNode)
+{
+	this->data = newPerson;
+	this->next = newNode;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Node::~Node()
+// Purpose:    Implementation of Node::~Node()
+// Return:     
+////////////////////////////////////////////////////////////////////////
+
+Node::~Node()
+{
+   // TODO : implement
+}

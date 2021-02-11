@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o Menu.o Console.o
-LINKOBJ  = main.o Menu.o Console.o
+OBJ      = main.o Menu.o Console.o Person.o Age.o List.o Node.o Algorithms.o InputData.o Options.o File.o
+LINKOBJ  = main.o Menu.o Console.o Person.o Age.o List.o Node.o Algorithms.o InputData.o Options.o File.o
 LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
 CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
@@ -32,3 +32,27 @@ Menu.o: Menu.cpp
 
 Console.o: Console.cpp
 	$(CPP) -c Console.cpp -o Console.o $(CXXFLAGS)
+
+Person.o: Person.cpp
+	$(CPP) -c Person.cpp -o Person.o $(CXXFLAGS)
+
+Age.o: Age.cpp
+	$(CPP) -c Age.cpp -o Age.o $(CXXFLAGS)
+
+List.o: List.cpp
+	$(CPP) -c List.cpp -o List.o $(CXXFLAGS)
+
+Node.o: Node.cpp
+	$(CPP) -c Node.cpp -o Node.o $(CXXFLAGS)
+
+Algorithms.o: Algorithms.cpp
+	$(CPP) -c Algorithms.cpp -o Algorithms.o $(CXXFLAGS)
+
+InputData.o: InputData.cpp
+	$(CPP) -c InputData.cpp -o InputData.o $(CXXFLAGS)
+
+Options.o: Options.cpp
+	$(CPP) -c Options.cpp -o Options.o $(CXXFLAGS)
+
+File.o: File.cpp
+	$(CPP) -c File.cpp -o File.o $(CXXFLAGS)

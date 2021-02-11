@@ -1,13 +1,21 @@
 #include <iostream>
 #include "Menu.h"
+#include "List.h"
+#include "Person.h"
+#include "Algorithms.h"
+#include "Options.h"
 
 using namespace std;
 
 int main(int argc, char** argv) {
 	
-	int option=0;
+	int option=0 , opt = 0;
 	Menu menu;
-	string mainMenu[] = {"Nueva Persona","Mostrar Persona","Buscar Persona","Backup","Salir"};
+	Options optn;
+	List *people = new List();
+	Algorithms algrtms;
+	string mainMenu[] = {"Nueva Persona","Mostrar Persona","Buscar Persona","Ver Registro","Backup","Salir"};
+	string viewPerson[] = {"Ver todas","Ver Persona","Atras"};
 	
 	do
     {   
@@ -18,25 +26,54 @@ int main(int argc, char** argv) {
         {
         case 1:
         	system("cls");
-			cout<<option<<endl;
+			optn.inputNewPerson(people);
 			system("pause");
             break;
 
         case 2:
-        	system("cls");
-			cout<<option<<endl;
-			system("pause");
+        	
+        	opt = menu.makeMenu("< Mostrar Personas >",viewPerson,3);
+        	
+        	switch (opt)
+                {
+                case 1:
+                    
+                    system("cls");
+					algrtms.sort(people);
+					cout<<people->toString()<<endl;
+					system("pause");
+                    
+                    break;
+                case 2:
+                	
+                    system("cls");
+					optn.viewPerson(people);
+					system("pause");
+                    
+                    break;
+                default:
+                    break;
+                }
+        	
             break;    
         case 3:
-        	system("cls");
-        	cout<<option<<endl;
+        	
+			system("cls");
+			optn.viewPerson(people);
 			system("pause");
 			break;
+		
 		case 4:
 			system("cls");
-			cout<<option<<endl;
+			cout<<"Registro"<<endl;
 			system("pause");
-			break;    
+			break;  
+		case 5:
+			system("cls");
+			cout<<"Backup"<<endl;
+			system("pause");
+			break;   
+		  
         default:
             system("cls");
             break;
@@ -45,6 +82,5 @@ int main(int argc, char** argv) {
     } while (option > 0 && option <5);
     
 	
-	
-	return 0;
+return 0;
 }
