@@ -7,8 +7,8 @@
 class File
 {
 	public:
-		void saveInFile();
-		void viewFile();
+		char insertarCliente(Person persona);
+		Person* obtenerClientes(int* n);
 		//File(List* people);
 	private:
 		//List* people;

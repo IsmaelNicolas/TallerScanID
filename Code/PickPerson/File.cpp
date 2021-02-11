@@ -4,85 +4,57 @@
 #include <fstream>
 
 using namespace std;
-/*
-File::File(List* people){
-	this->people = people;
-}
-*/
-void File::saveInFile()
+
+char File::insertarCliente(Person persona)
 {
-	/*
-	FILE *fich;
-	
-	//cout<<endl<<prsn->toString()<<endl;
-	
-	
-	if((fich = fopen("Registro.dat","ab"))==NULL){
-		printf("\nFichero no existe! ");
-	}else{
-		fwrite(&people,sizeof(people),1,fich);	// Escribe todo lo que tenemos en la estructura en el fichero . . . .. . 
-		fclose(fich);	//Cierra el fichero para que no quede abierto . . . . .
-		cout<<"\nDate saved into file the file.\n";
-	}
-	
-	
-	
-	//cout<<prsn->toString()<<endl;
-	
-	fstream file;
-	file.open("Registro.txt",ios::out|ios::binary);
-	if(!file){
-		cout<<"Error in creating file...\n";
-		return;
-	}
-	
-	file.write((char*)&people,sizeof(people));
-	file.close();
-	cout<<"Date saved into file the file.\n";*/
+	FILE* archivo;
+	char insercion;
 
+	archivo = fopen("personas.dat", "ab");
 
+	if (archivo == NULL) {
+		insercion = 0;
+
+	}
+	else {
+		fwrite(&persona, sizeof(persona), 1, archivo);
+		insercion = 1;
+
+		fclose(archivo);
+	}
+
+	return insercion;
 }
 
-void File::viewFile(){
-	
-	/*FILE *fich;
-	
-	if((fich = fopen("Registro.dat","rb")) == NULL){
-		printf("\n Fichero no existe ");
-	}else{
-		
-		fread(&people,sizeof(people),1,fich);	// Lee los registros del Fichero Posicion por posicion . . . .
-		while(! feof(fich)){	// Recorriendo el Fichero . . . .
-			printf("\n ____________________________");
-            cout<<endl<<people->toString()<<endl;
-			fread(&people,sizeof(people),1,fich);
-		}
+Person* File::obtenerClientes(int* n) {
+	FILE* archivo;
+	Person persona;
+	Person* personas;
+	int i;
+
+	archivo = fopen("personas.dat", "rb");
+
+	if (archivo == NULL) {
+		*n = 0;
+		personas = NULL;
+
 	}
-	fclose(fich);
-	getch();*/
-	
-	//Person prsn;
-	/*
-	fstream file;
-	file.open("Registro.txt",ios::in|ios::binary);
-	if(!file){
-		cout<<"Error in opening file...\n";
-		return ;
-	}
-	try{
-		if(file.read((char*)&people,sizeof(people))){
-			cout<<endl<<endl;
-			cout<<"Data extracted from file..\n";
-			//print the object
-			cout<<people->toString()<<endl;
+	else {
+
+		fseek(archivo, 0, SEEK_END);
+		*n = ftell(archivo) / sizeof(Person);
+		personas = (Person*)malloc((*n) * sizeof(Person));
+
+		fseek(archivo, 0, SEEK_SET);
+		fread(&persona, sizeof(persona), 1, archivo);
+		i = 0;
+		while (!feof(archivo)) {
+			personas[i++] = persona;
+			fread(&persona, sizeof(persona), 1, archivo);
 		}
-		else{
-			cout<<"Error in reading data from file...\n";
-		return ;
-		}
-	}catch (invalid_argument& e){
-		cout<<"Error in reading data from file...\n"<<endl;
+
+		fclose(archivo);
 	}
-	
-	*/
-} 
+
+	return personas;
+}

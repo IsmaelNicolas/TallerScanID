@@ -14,6 +14,7 @@ void Options::inputNewPerson(List* people)
 	char* cadena = new char[50];
 	Person* prsn = new Person();
 	Console screen;
+	File file;
 	string dato = "";
 	string cad;
 	InputData in;
@@ -88,17 +89,17 @@ void Options::inputNewPerson(List* people)
 	brth.setDay(stoi(dato));
 	
 	prsn->setAge(brth.calculateAge());
-	
 	cad = prsn->mostrarInformacion();
 	for (int i = 0; i < cad.size(); i++) {
 		*(cadena + i) = cad[i];
 	}
 	qr.crear_QR(cadena);
+
 	//File dataFile(people);
 	//dataFile.saveInFile();
 	
 	people->add(prsn);
-	
+	file.insertarCliente(prsn);
 	
 	
 	cout<<"\n\t";
