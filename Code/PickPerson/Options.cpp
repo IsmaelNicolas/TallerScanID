@@ -107,7 +107,7 @@ void Options::inputNewPerson(List* people)
 
 
 	file.insertarCliente(p);
-	
+	file.makePDF(p);
 	
 	cout<<"\n\t";
 }

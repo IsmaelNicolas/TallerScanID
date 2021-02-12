@@ -6,10 +6,25 @@
 #include <iomanip>
 //using namespace std;
 
-void File::makePDF(Person) {
+void File::makePDF(Person person) {
 
 
+	remove("temp.txt");
+	std::ofstream outdata;
+	outdata.open("temp.txt");
+	
+	if (!outdata) { // file couldn't be opened
+		std::cout << "Error: file could not be opened" << std::endl;
+	}
 
+	outdata << person.getName() <<std::endl;
+	outdata << person.getSurname() << std::endl;
+	outdata << person.getAge().getYear() << std::endl;
+	outdata << person.getId() << std::endl;
+
+	outdata.close();
+
+	system("python pdf.py");
 
 }
 
