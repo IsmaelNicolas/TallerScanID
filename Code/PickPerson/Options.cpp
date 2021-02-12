@@ -89,11 +89,11 @@ void Options::inputNewPerson(List* people)
 	brth.setDay(stoi(dato));
 	
 	prsn->setAge(brth.calculateAge());
-	cad = prsn->mostrarInformacion();
+	cad = prsn->toString();
 	for (int i = 0; i < cad.size(); i++) {
 		*(cadena + i) = cad[i];
 	}
-	//qr.crear_QR(cadena);
+	qr.crear_QR(cadena);
 
 	//File dataFile(people);
 	//dataFile.saveInFile();
