@@ -93,13 +93,20 @@ void Options::inputNewPerson(List* people)
 	for (int i = 0; i < cad.size(); i++) {
 		*(cadena + i) = cad[i];
 	}
-	qr.crear_QR(cadena);
+	//qr.crear_QR(cadena);
 
 	//File dataFile(people);
 	//dataFile.saveInFile();
 	
 	people->add(prsn);
-	file.insertarCliente(prsn);
+	Person p;
+	p.setId(prsn->getId());
+	p.setAge(prsn->getAge());
+	p.setName(prsn->getName());
+	p.setSurname(prsn->getSurname());
+
+
+	file.insertarCliente(p);
 	
 	
 	cout<<"\n\t";
@@ -113,7 +120,7 @@ void Options::viewPerson(List* people){
 	Person* prsn = new Person(); 
 	InputData in;
 	
-	//GeneraQR qr;
+	GeneraQR qr;
 	string info;
 	char* cadena = new char[50];
 	
@@ -133,15 +140,12 @@ void Options::viewPerson(List* people){
 	}else{
 		screen.changeColor(WHITE,BLACK);
 		cout<<prsn->toString()<<endl;
+		system("cls");
+		info = "Nombre: " + prsn->getName() + "\nApellido: " + prsn->getSurname() + "\nCedula: " + prsn->getId();
+		qr.crear_QR(info.c_str());
 	}
 	
-	info = "Nombre: " + prsn->getName() +"\nApellido: " + prsn->getSurname() + "Cedula: " + prsn->getId();
 	
-	for(int i = 0; i<info.size() ; i++){
-		*(cadena + i) = info[i];
-	}
-	
-	//qr.crear_QR(cadena);
 	
 
 }

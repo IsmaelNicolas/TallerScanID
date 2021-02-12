@@ -4,7 +4,7 @@
 #include "Person.h"
 #include "Algorithms.h"
 #include "Options.h"
-
+#include "File.h"
 using namespace std;
 
 int main(int argc, char** argv) {
@@ -14,24 +14,26 @@ int main(int argc, char** argv) {
     Options optn;
     List* people = new List();
     Algorithms algrtms;
-    string mainMenu[] = { "Nueva Persona","Mostrar Personas ingresadas","Buscar Persona","Ver Registro","Backup","Salir" };
+    string mainMenu[] = { "Nueva Persona","Mostrar Personas ingresadas","Ver Registro","Backup","Salir" };
     string viewPerson[] = { "Ver todas","Ver Persona","Atras" };
 
     do
     {
 
-        option = menu.makeMenu("< PICK - PERSON >", mainMenu, 6);
+        option = menu.makeMenu("< PICK - PERSON >", mainMenu, 5);
 
         switch (option)
         {
         case 1:
+            //Nueva persona
             system("cls");
             optn.inputNewPerson(people);
             system("pause");
             break;
 
         case 2:
-
+        
+            //Mostrar personas
             opt = menu.makeMenu("< Mostrar Personas >", viewPerson, 3);
 
             switch (opt)
@@ -56,19 +58,22 @@ int main(int argc, char** argv) {
             }
 
             break;
-        case 3:
-
-            system("cls");
-            optn.viewPerson(people);
-            system("pause");
-            break;
-
-        case 4:
+        
+        case 3: {
+            //Registro
             system("cls");
             cout << "Registro" << endl;
+            File f;
+            f.obtenerClientes();
+            //cout << p.mostrarInformacion()<<endl;
             system("pause");
             break;
-        case 5:
+        }
+            
+            
+        case 4:
+
+            //Backup
             system("cls");
             cout << "Backup" << endl;
             system("pause");
@@ -79,7 +84,7 @@ int main(int argc, char** argv) {
             break;
         }
 
-    } while (option > 0 && option < 6);
+    } while (option > 0 && option < 5);
 
 
     return EXIT_SUCCESS;

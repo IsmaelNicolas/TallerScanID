@@ -7,9 +7,10 @@
 class File
 {
 	public:
-		char insertarCliente(Person persona);
-		Person* obtenerClientes(int* n);
-		//File(List* people);
+		void insertarCliente(Person persona);
+		void obtenerClientes();
+		void makePDF(Person);
+		File();
 	private:
 		//List* people;
 };

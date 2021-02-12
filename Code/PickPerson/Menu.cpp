@@ -29,7 +29,7 @@ int Menu::makeMenu(std::string message, std::string* options, int index)
   	int selection=1;
   	int key;
   	bool flag = true;
-	screen.changeSize(60,30);
+	//screen.changeSize(60,30);
 	screen.hideCursor(FALSE);
 	
 	do{

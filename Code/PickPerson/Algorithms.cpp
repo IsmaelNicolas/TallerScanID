@@ -21,6 +21,8 @@ void Algorithms::sort(List * People)
 	Node* swapAux = NULL;
 	Person *person;
    
+	if (People->empy())return;
+
 	while(aux->getNext() != NULL)
 	{	
 		swapAux = aux->getNext();
@@ -62,8 +64,11 @@ Person* Algorithms::seach(List * people,string param)
 	if(people->empy() ){
 		return NULL;
 	}
+
 	Person* prsn = NULL;
    	Node *aux = people->getNext();
+
+	
 
 	do{
 		if(param ==aux->getData()->getId() )
