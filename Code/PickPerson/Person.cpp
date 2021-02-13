@@ -81,6 +81,7 @@ std::string Person::toString()
 	s<<"Apellido: "<<this->surname<<std::endl;
 	s<<"Edad: "<<this->age.getYear()<<std::endl;
 	//s<<"Correo: "<<this->email<<std::endl;
+	s << "Cedula: " << this->id<< std::endl;
 	
 	return s.str();	
 }

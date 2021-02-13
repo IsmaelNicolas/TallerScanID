@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 ﻿  File.cpp
   PickPerson.vcxproj -> D:\User\UNIVERSIDAD\Estructuras de datos\Taller Cedula\Code\PickPerson\x64\Debug\PickPerson.exe
+=======
+﻿  Person.cpp
+  PickPerson.vcxproj -> C:\Users\aange\OneDrive\Documentos\GitHub\TallerScanID\Code\PickPerson\x64\Debug\PickPerson.exe
+>>>>>>> fd1076b5338569ea8d43178237764b56299152ec
