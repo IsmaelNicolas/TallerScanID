@@ -62,10 +62,10 @@ int main(int argc, char** argv) {
         case 3: {
             //Registro
             system("cls");
-            cout << "Registro" << endl;
             File f;
-            f.obtenerClientes();
+            f.mostrarClientes();
             //cout << p.mostrarInformacion()<<endl;
+            std::cout << "\n\n\t\t";
             system("pause");
             break;
         }

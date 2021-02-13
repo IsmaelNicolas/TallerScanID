@@ -1,10 +1,10 @@
 #include "File.h"
 #include <iostream>
-#include <conio.h>
 #include <fstream>
 #include <string>
+#include <sstream>
 #include <iomanip>
-//using namespace std;
+#include "Console.h"
 
 void File::makePDF(Person person) {
 
@@ -29,62 +29,83 @@ void File::makePDF(Person person) {
 }
 
 File::File() {
-	/*
-	std::ofstream wfile("data.txt",std::ios::binary);
+	
+	std::ofstream CreateFile("register.csv", std::ios::app);
 
-	if (!wfile) {
-		std::cout << "El archivo no se puedo abrir" << std::endl;
-		system("pause");
-	}
-
-	Person p;
-
-	for (int i = 0; i < 10; ++i) {
-		wfile.write(reinterpret_cast<const char*>(&p),sizeof(Person) );
-	}
-	*/
 }
 
 void File::insertarCliente(Person persona)
 {
-	std::ofstream wfile("data.txt",std::ios::in , std::ios::binary);
+	std::ofstream wfile("register.csv",std::ios::app);
 
 	if (!wfile) {
 		std::cerr << "El archivo no se puedo abrir" << std::endl;
 		system("pause");
 	}
 	
-	wfile.seekp( sizeof(Person) );
-	wfile.write(reinterpret_cast<const char*>(&persona),sizeof(Person) );
+	wfile << persona.getName()<< ";" << persona.getSurname() << ";" << persona.getAge().getYear() << ";" << persona.getId() << std::endl;
+
+	wfile.close();
+
 }
 
 
-void File::obtenerClientes() {
+void File::mostrarClientes() {
 	
-	Person persona;
+	Console screen;
+	std::string data = "";
+	std::string refinedData  = "";
 
-	std::fstream wfile("data.txt" , std::ios::out|std::ios::in | std::ios::binary);
+	std::ifstream outfile;
 
-	if (!wfile) {
-		std::cout << "El archivo no se puedo abrir" << std::endl;
-		system("pause");
+	std::string name;
+	//std::string surname;
+	std::string age;
+	std::string id;
+
+	outfile.open("register.csv");
+
+	if (outfile.fail()) {
+		std::cerr << "\nNo se pudo abrir el registro" << std::endl;
+	}
+	screen.changeColor(WHITE,BLACK);
+
+	std::cout << std:: endl;
+	std::cout << "\t\t" << std::setfill('-') << std::setw(47) << "-" << std::endl;
+	std::cout << std::setfill(' ');// << std::setw(44) << " " << std::endl;
+
+	std::cout << std::left <<"\t\t"<<std::setw(25) << "|  Nombre y apellido" <<
+	std::setw(7) << "| Edad" <<
+	std::setw(12) << "| Cedula" <<std::setw(0)<<"  |"<< std::endl;
+	std::cout << "\t\t" << std::setfill('-') << std::setw(47) << "-" << std::endl;
+	std::cout << std::setfill(' ');
+	//std::cout << std::endl;
+
+
+	while (std::getline(outfile,data)  ) {
+
+		std::stringstream dataProcess(data); 
+
+		std::getline(dataProcess, refinedData, ';');
+		name = refinedData;
+
+		std::getline(dataProcess, refinedData, ';');
+		name = name + " " + refinedData;
+
+		std::getline(dataProcess, refinedData, ';');
+		age = refinedData;
+
+		std::getline(dataProcess, refinedData, ';');
+		id = refinedData;
+
+		std::cout << std::left <<"\t\t" << std::setw(25) << "|  " + name  <<
+		std::setw(7) << "| " + age <<
+		std::setw(12) << "| " + id << std::setw(0) << "  |" << std::endl;
+
+		std::cout << "\t\t" << std::setfill('-') << std::setw(47) << "-" << std::endl;
+		std::cout << std::setfill(' ');
 	}
 
-	std::cout << std::left << std::setw(16) << "Nombre y Apellido" <<
-		std::setw(11) << "Cedula" <<
-		std::setw(4) << "Edad" << std::endl;
-	
-	wfile.read(reinterpret_cast<char*>(&persona), sizeof(Person));
-	while (wfile && !wfile.eof() )
-	{
-		std::cout << std::left << std::setw(16) << persona.getName()<<persona.getSurname() <<
-		std::setw(11) << persona.getId() <<
-		std::setw(4) << persona.getAge().getYear() << std::endl;
-
-		wfile.read(reinterpret_cast<char*>(&persona), sizeof(Person));
-
-	}
-	wfile.close();
-
+	outfile.close();
 
 }

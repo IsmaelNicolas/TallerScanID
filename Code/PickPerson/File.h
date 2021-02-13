@@ -8,7 +8,7 @@ class File
 {
 	public:
 		void insertarCliente(Person persona);
-		void obtenerClientes();
+		void mostrarClientes();
 		void makePDF(Person);
 		File();
 	private:
