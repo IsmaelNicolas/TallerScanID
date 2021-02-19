@@ -5,6 +5,7 @@
 #include "Algorithms.h"
 #include "Options.h"
 #include "File.h"
+
 using namespace std;
 
 int main(int argc, char** argv) {
@@ -16,6 +17,7 @@ int main(int argc, char** argv) {
     Algorithms algrtms;
     string mainMenu[] = { "Nueva Persona","Mostrar Personas ingresadas","Ver Registro","Backup","Salir" };
     string viewPerson[] = { "Ver todas","Ver Persona","Atras" };
+    optn.init();
 
     do
     {
@@ -71,13 +73,17 @@ int main(int argc, char** argv) {
         }
             
             
-        case 4:
+        case 4: {
 
             //Backup
             system("cls");
             cout << "Backup" << endl;
+            File f;
+            f.makeBackup();
             system("pause");
             break;
+
+        }   
 
         default:
             system("cls");

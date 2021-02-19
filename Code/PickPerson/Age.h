@@ -2,6 +2,7 @@
 #define AGE_H
 
 #include <ctime>
+#include <string>
 
 class Age
 {
@@ -13,6 +14,7 @@ class Age
 		void setMonth(int newMonth);
 		int getDay();
 		void setDay(int newDay);
+		std::string getDate();
 		Age();
 	private:
 		int year;

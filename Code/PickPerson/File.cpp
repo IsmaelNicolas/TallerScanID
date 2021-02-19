@@ -5,22 +5,43 @@
 #include <sstream>
 #include <iomanip>
 #include "Console.h"
+#include "Age.h"
+#include <sstream>
+#include <direct.h> 
+#include <Windows.h>
 
-void File::makePDF(Person person) {
 
 
-	remove("temp.txt");
+void File::makeBackup() {
+
+	Age ag;
+	std::ostringstream oss;	
+
+	std::string back = "C:\\PickPerson\\Backups\\BackUp-" + ag.getDate() +".csv";
+	oss<< "copy C:\\PickPerson\\Registros\\register.csv" << " "<<back;
+	
+	system(oss.str().c_str());
+
+	std::cout << "BackUp-"<< ag.getDate()<<".csv" <<std::endl;
+	std::cout << "\n" << std::endl;
+	
+}
+
+void File::makePDF(Person* person) {
+
+
+	remove("C:\\PickPerson\\Temp\\temp.txt");
 	std::ofstream outdata;
-	outdata.open("temp.txt");
+	outdata.open("C:\\PickPerson\\Temp\\temp.txt");
 	
 	if (!outdata) { // file couldn't be opened
 		std::cout << "Error: file could not be opened" << std::endl;
 	}
 
-	outdata << person.getName() <<std::endl;
-	outdata << person.getSurname() << std::endl;
-	outdata << person.getAge().getYear() << std::endl;
-	outdata << person.getId() << std::endl;
+	outdata << person->getName() <<std::endl;
+	outdata << person->getSurname() << std::endl;
+	outdata << person->getAge().getYear() << std::endl;
+	outdata << person->getId() << std::endl;
 
 	outdata.close();
 
@@ -30,20 +51,20 @@ void File::makePDF(Person person) {
 
 File::File() {
 	
-	std::ofstream CreateFile("register.csv", std::ios::app);
+	std::ofstream CreateFile("C:\\PickPerson\\Registros\\register.csv", std::ios::app);
 
 }
 
-void File::insertarCliente(Person persona)
+void File::insertarCliente(Person* person)
 {
-	std::ofstream wfile("register.csv",std::ios::app);
+	std::ofstream wfile("C:\\PickPerson\\Registros\\register.csv",std::ios::app);
 
 	if (!wfile) {
 		std::cerr << "El archivo no se puedo abrir" << std::endl;
 		system("pause");
 	}
 	
-	wfile << persona.getName()<< ";" << persona.getSurname() << ";" << persona.getAge().getYear() << ";" << persona.getId() << std::endl;
+	wfile << person->getName()<< ";" << person->getSurname() << ";" << person->getAge().getYear() << ";" << person->getId() << std::endl;
 
 	wfile.close();
 
@@ -63,7 +84,7 @@ void File::mostrarClientes() {
 	std::string age;
 	std::string id;
 
-	outfile.open("register.csv");
+	outfile.open("C:\\PickPerson\\Registros\\register.csv");
 
 	if (outfile.fail()) {
 		std::cerr << "\nNo se pudo abrir el registro" << std::endl;

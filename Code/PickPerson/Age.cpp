@@ -1,5 +1,6 @@
 #pragma warning(disable : 4996)
 #include "Age.h"
+#include <time.h>
 
 Age::Age(){
 	time_t today = time(NULL);
@@ -7,6 +8,16 @@ Age::Age(){
 	year = now.tm_year+1900;
 	month = now.tm_mon + 1;
 	day = now.tm_mday;
+}
+
+std::string Age::getDate() {
+
+	time_t today = time(NULL);
+	struct tm now = *localtime(&today);
+	std::string date = std::to_string(day) + "." + std::to_string(month) + "." + std::to_string(year) +
+		"-" + std::to_string(now.tm_hour) + "." + std::to_string(now.tm_min) + "." + std::to_string(now.tm_sec);
+
+	return date;
 }
 
 int Age::getYear(){

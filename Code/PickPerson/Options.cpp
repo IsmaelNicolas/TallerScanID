@@ -2,11 +2,24 @@
 #include "InputData.h"
 #include "Console.h"
 #include <iostream>
+#include <direct.h>
 #include "Algorithms.h"
 #include "GenerarQR.h"
 #include "File.h"
 
 using namespace std;
+
+void Options::init() {
+
+	int flag;
+	flag = _mkdir("C:\\PickPerson");
+	flag = _mkdir("C:\\PickPerson\\Backups");
+	flag = _mkdir("C:\\PickPerson\\Registros");
+	flag = _mkdir("C:\\PickPerson\\Temp");
+	flag = _mkdir("C:\\PickPerson\\PDFS");
+	
+}
+
 
 void Options::inputNewPerson(List* people)
 {
@@ -90,10 +103,11 @@ void Options::inputNewPerson(List* people)
 	
 	prsn->setAge(brth.calculateAge());
 	cad = prsn->toString();
-	for (int i = 0; i < cad.size(); i++) {
-		*(cadena + i) = cad[i];
-	}
-	qr.crear_QR(cadena);
+	
+	//for (int i = 0; i < cad.size(); i++) {
+		//*(cadena + i) = cad[i];
+	//}
+	//qr.crear_QR(cadena);
 
 	//File dataFile(people);
 	//dataFile.saveInFile();
@@ -106,8 +120,8 @@ void Options::inputNewPerson(List* people)
 	p.setSurname(prsn->getSurname());
 
 
-	file.insertarCliente(p);
-	file.makePDF(p);
+	file.insertarCliente(prsn);
+	file.makePDF(prsn);
 	
 	cout<<"\n\t";
 }
@@ -119,7 +133,6 @@ void Options::viewPerson(List* people){
 	Algorithms lgrtm;
 	Person* prsn = new Person(); 
 	InputData in;
-	
 	GeneraQR qr;
 	string info;
 	char* cadena = new char[50];

@@ -3,7 +3,7 @@ from fpdf import FPDF
 class PDF():
     
     def __init__(self):
-        file = open("temp.txt")
+        file = open("C:\\PickPerson\\Temp\\temp.txt")
         self.data = []
         for line in file:
             self.data.append(line)
@@ -25,7 +25,7 @@ class PDF():
 
         #make file
         nameFile = str(self.data[0]).replace("\n"," ") + str(self.data[1]).replace("\n"," ")
-        pdf.output(".\PDFS\\"+nameFile +".pdf")
+        pdf.output("C:\\PickPerson\\PDFS\\"+nameFile +".pdf")
 
 root = PDF()
 root.makePDF()

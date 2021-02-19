@@ -8,7 +8,7 @@ class Options
 	public:
 		void inputNewPerson(List* );
 		void viewPerson(List *);
-		
+		void init();
 	protected:
 };
 
